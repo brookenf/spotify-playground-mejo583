@@ -64,9 +64,8 @@ app.get('/category-playlists', function (request, response) {
   
   // Get playlists from a browse category
   // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-  spotifyApi.getPlaylistsForCategory('kpop', { limit : 10 })
+  spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country: "CA" })
     .then(function(data) {
-    
     // Send the list of playlists
     response.send(data.body.playlists);
     
