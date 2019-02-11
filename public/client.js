@@ -53,7 +53,7 @@ $(function() {
     
     // The name of the track in 'Audio Features'
     var trackTitle = $('<h3>' + data.name + '</h3>');
-    trackTitle.appendTo('#audio-features-container'); 
+    trackTitle.appendTo('#audio-features-name'); 
   });
   
   $.get('/audio-features', function(data) {
@@ -63,9 +63,8 @@ $(function() {
     console.groupEnd();
     
     // The audio features we want to show
-    var keys = ["danceability", "energy", "acousticness"]
+    var keys = ["danceability", "energy", "acousticness", "liveness", "tempo"]
     
-    // Display the name
     
     // Display the audio features
     keys.map(function(key, i) {
