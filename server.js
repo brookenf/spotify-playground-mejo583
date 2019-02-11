@@ -91,11 +91,11 @@ app.get('/tracks', function(request, response) {
 app.get('/audio-features', function (request, response) {
     
   // Get the audio features for a track ID
-  spotifyApi.getAudioFeaturesForTrack('4uLU6hMCjMI75M1A2tKUQC')
+  spotifyApi.getAudioFeaturesForTracks({ids : "4uLU6hMCjMI75M1A2tKUQC,1DXJS269UOBH83Ano9JEvp"})
     .then(function(data) {
     
       //Send the audio features object
-      response.send(data.body);
+      response.send(data.body.audio_features);
     
     }, function(err) {
       console.error(err);
