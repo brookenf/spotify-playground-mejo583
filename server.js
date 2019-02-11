@@ -73,18 +73,20 @@ app.get('/category-playlists', function (request, response) {
     console.error(err);
   });
 });
+//https://api.spotify.com/v1/browse/categories/kpop/playlists?country=CA&offset=0&limit=10
 
 app.get('/tracks', function(request, response) { 
-  
+  //https://api.spotify.com/v1/tracks/4uLU6hMCjMI75M1A2tKUQC
   //Get the name of the specific track from ID
-  spotifyApi.getTracks('4uLU6hMCjMI75M1A2tKUQC')
+  spotifyApi.getTracks('id:4uLU6hMCjMI75M1A2tKUQC')
     .then(function(data) {
       
       //Send the track's information
-      response.send(data.body);
-  }, function(err) {
+      response.send(data.body.tracks);
     
-  });
+    }, function(err) {
+      console.error(err);
+    });
 });
 
 app.get('/audio-features', function (request, response) {
