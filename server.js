@@ -89,17 +89,28 @@ app.get('/tracks', function(request, response) {
 });
 
 app.get('/audio-features', function (request, response) {
-    
+  
   // Get the audio features for a track ID
-  spotifyApi.getAudioFeaturesForTracks({ids : "4uLU6hMCjMI75M1A2tKUQC,1DXJS269UOBH83Ano9JEvp"})
+  spotifyApi.getAudioFeaturesForTrack('4uLU6hMCjMI75M1A2tKUQC')
     .then(function(data) {
     
       //Send the audio features object
-      response.send(data.body.audio_features);
+      response.send(data.body);
     
     }, function(err) {
       console.error(err);
     });
+  
+//   // Get the audio features for another track ID
+//   spotifyApi.getAudioFeaturesForTrack('4OPK8evRD36lXDuGasPXe8')
+//     .then(function(data) {
+    
+//       //Send the audio features object
+//       response.send(data.body);
+    
+//     }, function(err) {
+//       console.error(err);
+//     });
 });
 
 app.get('/artist', function (request, response) {
