@@ -51,6 +51,10 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
+    // The name of the track in 'Audio Features'
+    var trackTitle = $('<h3>' + data.name + '</h3>');
+    trackTitle.appendTp('#'
+    
   
   });
   
