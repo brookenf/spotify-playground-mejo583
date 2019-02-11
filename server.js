@@ -78,11 +78,11 @@ app.get('/category-playlists', function (request, response) {
 app.get('/tracks', function(request, response) { 
   //https://api.spotify.com/v1/tracks/4uLU6hMCjMI75M1A2tKUQC
   //Get the name of the specific track from ID
-  spotifyApi.getTracks('id:4uLU6hMCjMI75M1A2tKUQC')
+  spotifyApi.getTitleForTrack('4uLU6hMCjMI75M1A2tKUQC')
     .then(function(data) {
       
       //Send the track's information
-      response.send(data.body.tracks);
+      response.send(data.body.album.artists[0]);
     
     }, function(err) {
       console.error(err);
