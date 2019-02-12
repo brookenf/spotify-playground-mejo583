@@ -77,7 +77,7 @@ app.get('/category-playlists', function (request, response) {
 app.get('/tracks', function(request, response) { 
   //https://api.spotify.com/v1/tracks/4uLU6hMCjMI75M1A2tKUQC
   //Get the name of the specific track from ID
-  spotifyApi.getTrack({ ids : '4uLU6hMCjMI75M1A2tKUQC' })
+  spotifyApi.getTrack('4uLU6hMCjMI75M1A2tKUQC')
     .then(function(data) {
       
       //send the data
