@@ -103,14 +103,16 @@ $(function() {
         genreItem.appendTo('#artist-container');
       });
       
-      // Display JT's popularity
-      var popularity = $('<p><span class="big-number">#' + data[1].popularity + '</span> in popularity </p>');
-      popularity.appendTo('#artist-container');
-      
-      //Display no of followers JT has
-      var noOfFollowers = data[1].followers.total.toLocaleString();
-      var followers = $('<p><span class="big-number">' + noOfFollowers + '</span> followers</p>');
-      followers.appendTo('#artist-container');
+      if (data[i].name == 'Justin Timberlake') {
+        // Display JT's popularity
+        var popularity = $('<p><span class="big-number">#' + data[1].popularity + '</span> in popularity </p>');
+        popularity.appendTo('#artist-container');
+
+        //Display no of followers JT has
+        var noOfFollowers = data[1].followers.total.toLocaleString();
+        var followers = $('<p><span class="big-number">' + noOfFollowers + '</span> followers</p>');
+        followers.appendTo('#artist-container');
+      }
     });//end of data.map for artists
   });
   
