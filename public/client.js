@@ -129,9 +129,9 @@ $(function() {
       // Display the audio features
       data.map(function(track, j) {
         var trackName = $('<li>' + track.name + '</li>');
-        trackName.appendTo('#top-tracks-container');
-      });
-    }
+          trackName.appendTo('#top-tracks-container');
+        });
+      }
     
   });//end of .get artist top tracks
 
