@@ -62,7 +62,6 @@ $(function() {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
     console.log(data);
-    console.log(data.href);
     console.groupEnd();
     
     // The audio features we want to show
