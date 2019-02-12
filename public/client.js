@@ -35,6 +35,7 @@ $(function() {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
     console.log(data);
+    console.log(data.href);
     console.groupEnd();
     
     // Display the covers of the playlists    
@@ -49,6 +50,7 @@ $(function() {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /tracks', 'color: #F037A5; font-size: large');
     console.log(data);
+    console.log(data.href);
     console.groupEnd();
     
     // The name of the track in 'Audio Features'
@@ -60,6 +62,7 @@ $(function() {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
     console.log(data);
+    console.log(data.href);
     console.groupEnd();
     
     // The audio features we want to show

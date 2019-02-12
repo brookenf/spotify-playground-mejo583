@@ -72,6 +72,7 @@ app.get('/category-playlists', function (request, response) {
   }, function(err) {
     console.error(err);
   });
+});
 
 app.get('/tracks', function(request, response) { 
   //https://api.spotify.com/v1/tracks/4uLU6hMCjMI75M1A2tKUQC
@@ -80,7 +81,7 @@ app.get('/tracks', function(request, response) {
     .then(function(data) {
       
       //send the data
-      response.send(data.body.album);
+      response.send(data.body);
     
     }, function(err) {
       console.error(err);
