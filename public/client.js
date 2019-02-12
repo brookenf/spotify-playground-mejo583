@@ -106,7 +106,10 @@ $(function() {
       // Display JT's popularity
       var popularity = $('<p><span class="big-number">#' + data[1].popularity + '</span> in popularity </p>');
       popularity.appendTo('#artist-container');
-    });
+      
+      //Display no of followers JT has
+      console.log(data[1].followers.total);
+    });//end of data.map for artists
   });
   
   $.get('/artist-top-tracks', function(data) {
