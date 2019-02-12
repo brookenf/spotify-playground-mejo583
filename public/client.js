@@ -35,26 +35,10 @@ $(function() {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
     console.log(data);
-    console.log(data.href);
     console.groupEnd();
     
     // Display the covers of the playlists    
-    data.items.map(function(playlist, i) {
-      var img = $('<img class="cover-image"/>');
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
-    });
-  });
-  
-  $.get('/category-playlists', function(data2) {
-    // "Data" is the object we get from the API. See server.js for the function that returns it.
-    console.group('%cResponse from /category-playlists-2', 'color: #F037A5; font-size: large');
-    console.log(data2);
-    console.log(data2.href);
-    console.groupEnd();
-    
-    // Display the covers of the playlists    
-    data2.items.map(function(playlist, i) {
+    data[0].items.map(function(playlist, i) {
       var img = $('<img class="cover-image"/>');
       img.attr('src', playlist.images[0].url);
       img.appendTo('#category-playlists-container');

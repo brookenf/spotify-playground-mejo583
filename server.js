@@ -62,31 +62,29 @@ app.get('/search-track', function (request, response) {
 
 app.get('/category-playlists', function (request, response) {
   
+  var categoryArray = [];
   // Get playlists from a browse category
   // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
+   spotifyApi.getPlaylistsForCategory('rap', { limit : 10 })
+    .then(function(data) {
+    // Send the list of playlists
+    categoryArray.push(data.body.playlists);
+    response.send(categoryArray);
+    
+  }, function(err) {
+    console.error(err);
+  });
   spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country : 'JP' })
     .then(function(data) {
     // Send the list of playlists
-    response.send(data.body.playlists);
+    categoryArray.push(data.body.playlists);
+    response.send(categoryArray);
     
   }, function(err) {
     console.error(err);
   });
 });
 
-app.get('/category-playlists', function (request, response) {
-  
-  // Get playlists from a browse category
-  // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-  spotifyApi.getPlaylistsForCategory('pop', { limit : 10 })
-    .then(function(data2) {
-    // Send the list of playlists
-    response.send(data2.body.playlists);
-    
-  }, function(err) {
-    console.error(err);
-  });
-});
 
 app.get('/tracks', function(request, response) { 
   //Get the name of the specific track from ID
