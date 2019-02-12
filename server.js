@@ -49,7 +49,7 @@ spotifyApi.clientCredentialsGrant()
 app.get('/search-track', function (request, response) {
   
   // Search for a track!
-  spotifyApi.searchTracks('track:Brand New', {limit: 1})
+  spotifyApi.searchTracks('track:Jennie', {limit: 1})
     .then(function(data) {
     
       // Send the first (only) track object
@@ -64,7 +64,7 @@ app.get('/category-playlists', function (request, response) {
   
   // Get playlists from a browse category
   // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-  spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country: "CA" })
+  spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country : "CA" })
     .then(function(data) {
     // Send the list of playlists
     response.send(data.body.playlists);
