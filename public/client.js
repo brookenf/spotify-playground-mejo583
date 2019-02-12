@@ -108,7 +108,9 @@ $(function() {
       popularity.appendTo('#artist-container');
       
       //Display no of followers JT has
-      console.log(data[1].followers.total);
+      var noOfFollowers = data[1].followers.total.toLocaleString();
+      var followers = $('<p><span class="big-number">' + noOfFollowers + '</span> followers</p>');
+      followers.appendTo('#artist-container');
     });//end of data.map for artists
   });
   
