@@ -101,7 +101,11 @@ $(function() {
       data[i].genres.map(function(genre, j) {
         var genreItem = $('<p>' + genre + '</p>');
         genreItem.appendTo('#artist-container');
-    });
+      });
+      
+      // Display JT's popularity
+      var popularity = $('<p><span class="big-number">#' + data[1].popularity + '</span> in popularity </p>');
+      popularity.appendTo('#artist-container');
     });
   });
   
