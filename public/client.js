@@ -105,12 +105,13 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
+    var artistsName = $('<h3>'+ data[0].artists[0].name +'</h3>');
+    artistsName.appendTo('#top-tracks-container');
+    
     //Display the artists names
     
     // Display the audio features
     data.map(function(track, i) {
-      console.log(track.artists[0].name);
-      var artistsName = $('<h3>'+ track.artists[0]+'</h3>'>
       var trackName = $('<li>' + track.name + '</li>');
       trackName.appendTo('#top-tracks-container');
     });
