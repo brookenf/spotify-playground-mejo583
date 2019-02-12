@@ -70,10 +70,7 @@ $(function() {
     
     // Display the audio features
     keys.map(function(key, i) {
-      if (data.hasOwnProperty(key)) {
-        var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
-        feature.appendTo('#audio-features-container');
-      }
+      for (var i = 0; i < 
     });
   });
   
