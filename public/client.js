@@ -121,15 +121,17 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
-    //Display the artists names
-    var artistsName = $('<h3>'+ data[0].artists[0].name +'</h3>');
-    artistsName.appendTo('#top-tracks-container');
+    for (var i =0; i <data.length; i++) {
+      //Display the artists names
+      var artistsName = $('<h3>'+ data[i].artists[0].name +'</h3>');
+      artistsName.appendTo('#top-tracks-container');
     
-    // Display the audio features
-    data.map(function(track, i) {
-      var trackName = $('<li>' + track.name + '</li>');
-      trackName.appendTo('#top-tracks-container');
-    });
+      // Display the audio features
+      data.map(function(track, j) {
+        var trackName = $('<li>' + track.name + '</li>');
+        trackName.appendTo('#top-tracks-container');
+      });
+    }
     
   });//end of .get artist top tracks
 
