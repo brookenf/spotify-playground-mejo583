@@ -115,23 +115,23 @@ $(function() {
     });//end of data.map for artists
   });
   
+for (var i = 
   $.get('/artist-top-tracks', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist-top-tracks', 'color: #F037A5; font-size: large');
     console.log(data);
     console.groupEnd();
-    
-    for (var i =0; i <data.length; i++) {
-      //Display the artists names
-      var artistsName = $('<h3>'+ data[i].artists[0].name +'</h3>');
-      artistsName.appendTo('#top-tracks-container');
-    
-      // Display the audio features
-      data.map(function(track, j) {
-        var trackName = $('<li>' + track.name + '</li>');
-          trackName.appendTo('#top-tracks-container');
-        });
-      }
+
+    //Display the artists names
+    var artistsName = $('<h3>'+ data[0].artists[0].name +'</h3>');
+    artistsName.appendTo('#top-tracks-container');
+
+    // Display the audio features
+    data.map(function(track, j) {
+      var trackName = $('<li>' + track.name + '</li>');
+        trackName.appendTo('#top-tracks-container');
+      });
+     
     
   });//end of .get artist top tracks
 

@@ -117,10 +117,10 @@ app.get('/artist', function (request, response) {
     });
 });
 
-app.get('/artist-top-tracks', function (request, response) {
-  var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
-  topTracks.map(function(track, i) {
+var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
+topTracks.map(function(track, i) {
   console.log(track);
+  app.get('/artist-top-tracks', function (request, response) {
     // Get an artist's top tracks in a country
     spotifyApi.getArtistTopTracks(track, 'SE')
       .then(function(data) {
