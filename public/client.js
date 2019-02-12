@@ -66,19 +66,19 @@ $(function() {
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
     console.groupEnd();
     
+    // The audio features we want to show
+    var keys = ["danceability", "energy", "acousticness", "liveness", "tempo"]
     for (var i = 0; i < data.length; i++) {
       console.log(data[i]);
-      // The audio features we want to show
-//       var keys = ["danceability", "energy", "acousticness", "liveness", "tempo"]
-    
-    
-//       // Display the audio features
-//       keys.map(function(key, i) {
-//         if (data[i].hasOwnProperty(key)) {
-//           var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
-//           feature.appendTo('#audio-features-container');
-//         }
-//       });
+             
+      // Display the audio features
+      keys.map(function(key, j) {
+        if (data[i].hasOwnProperty(key)) {
+          var feature = $('<p><span class="big-number">' + data[i][key] + ' </span>'  + key + '</p>');
+          console.log(feature);
+          feature.appendTo('#audio-features-container');
+        }
+      });
     }
   });
   
