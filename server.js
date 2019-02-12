@@ -75,9 +75,8 @@ app.get('/category-playlists', function (request, response) {
 });
 
 app.get('/tracks', function(request, response) { 
-  //https://api.spotify.com/v1/tracks/4uLU6hMCjMI75M1A2tKUQC
   //Get the name of the specific track from ID
-  spotifyApi.getTracks(['4uLU6hMCjMI75M1A2tKUQC', '1WkMMavIMc4JZ8cfMmxHkI'])
+  spotifyApi.getTracks(['5qUAdDl59w0Vbu4Gi6ecSX', '7GhIk7Il098yCjg4BQjzvb'])
     .then(function(data) {
       
       //send the data
@@ -91,7 +90,7 @@ app.get('/tracks', function(request, response) {
 app.get('/audio-features', function (request, response) {
   
   // Get the audio features for a track ID
-  spotifyApi.getAudioFeaturesForTracks(['4uLU6hMCjMI75M1A2tKUQC', '1WkMMavIMc4JZ8cfMmxHkI'])
+  spotifyApi.getAudioFeaturesForTracks(['5qUAdDl59w0Vbu4Gi6ecSX', '7GhIk7Il098yCjg4BQjzvb'])
     .then(function(data) {
     
       //Send the audio features object

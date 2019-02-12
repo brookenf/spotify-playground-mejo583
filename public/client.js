@@ -53,9 +53,12 @@ $(function() {
     console.groupEnd();
     
     // The name of the track in 'Audio Features'
-    for(var i = 0; i < 
-    // var trackTitle = $('<h3>' + data.album.name + '</h3>');
-    // trackTitle.appendTo('#audio-features-name'); 
+    for(var i = 0; i < data.length; i++) {
+      console.log(data[i].name);
+      var trackTitle = $('<h3>' + data[i].name + '</h3>');
+      trackTitle.appendTo('#audio-features-name'); 
+    }
+    
   });
   
   $.get('/audio-features', function(data) {
