@@ -75,7 +75,6 @@ $(function() {
       keys.map(function(key, j) {
         if (data[i].hasOwnProperty(key)) {
           var feature = $('<p><span class="big-number">' + data[i][key] + ' </span>'  + key + '</p>');
-          console.log(feature);
           feature.appendTo('#audio-features-container');
         }
       });
@@ -88,19 +87,21 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
-    // Display the artist's image
-    var img = $('<img class="circle-image" />');
-    img.attr('src', data.images[0].url);
-    img.appendTo('#artist-container');
+    data.map(function(artist, i) {
+      // Display the artist's image
+      var img = $('<img class="circle-image" />');
+      img.attr('src', data[i].images[0].url);
+      img.appendTo('#artist-container');
     
-    // Display the artist name
-    var trackName = $('<h3>' + data.name + '</h3>');
-    trackName.appendTo('#artist-container');
-    
-    // Display the artist's genres
-    data.genres.map(function(genre, i) {
-      var genreItem = $('<p>' + genre + '</p>');
-      genreItem.appendTo('#artist-container');
+      // Display the artist name
+      var artistName = $('<h3>' + data[i].name + '</h3>');
+      artistName.appendTo('#artist-container');
+
+      // Display the artist's genres
+      data[i].genres.map(function(genre, j) {
+        var genreItem = $('<p>' + genre + '</p>');
+        genreItem.appendTo('#artist-container');
+    });
     });
   });
   

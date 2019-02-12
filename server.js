@@ -99,27 +99,16 @@ app.get('/audio-features', function (request, response) {
     }, function(err) {
       console.error(err);
     });
-  
-//   // Get the audio features for another track ID
-//   spotifyApi.getAudioFeaturesForTrack('4OPK8evRD36lXDuGasPXe8')
-//     .then(function(data) {
-    
-//       //Send the audio features object
-//       response.send(data.body);
-    
-//     }, function(err) {
-//       console.error(err);
-//     });
 });
 
 app.get('/artist', function (request, response) {
   
   // Get information about an artist
-  spotifyApi.getArtist('6jJ0s89eD6GaHleKKya26X')
+  spotifyApi.getArtists(['6jJ0s89eD6GaHleKKya26X', '31TPClRtHm23RisEBtV3X7'])
     .then(function(data) {
     
       // Send the list of tracks
-      response.send(data.body);
+      response.send(data.body.artists);
     
     }, function(err) {
       console.error(err);
