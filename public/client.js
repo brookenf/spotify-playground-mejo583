@@ -120,10 +120,9 @@ $(function() {
     console.log(data);
     console.groupEnd();
     
+    //Display the artists names
     var artistsName = $('<h3>'+ data[0].artists[0].name +'</h3>');
     artistsName.appendTo('#top-tracks-container');
-    
-    //Display the artists names
     
     // Display the audio features
     data.map(function(track, i) {

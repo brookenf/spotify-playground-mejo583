@@ -127,15 +127,6 @@ app.get('/artist-top-tracks', function (request, response) {
     }, function(err) {
       console.error(err);
     });
-  spotifyApi.getArtistTopTracks('0LcJLqbBmaGUft1e9Mm8HV', 'SK')
-    .then(function(data) {
-    
-      // Send the list of tracks
-      response.send(data.body.tracks);
-    
-    }, function(err) {
-      console.error(err);
-    });
 });
 
 
