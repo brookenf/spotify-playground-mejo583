@@ -50,28 +50,33 @@ $(function() {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /tracks', 'color: #F037A5; font-size: large');
     console.log(data);
-    console.log(data.href);
     console.groupEnd();
     
     // The name of the track in 'Audio Features'
-    var trackTitle = $('<h3>' + data.album.name + '</h3>');
-    trackTitle.appendTo('#audio-features-name'); 
+    for(var i = 0; i < 
+    // var trackTitle = $('<h3>' + data.album.name + '</h3>');
+    // trackTitle.appendTo('#audio-features-name'); 
   });
   
   $.get('/audio-features', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /audio-features', 'color: #F037A5; font-size: large');
-    console.log(data);
     console.groupEnd();
     
-    // The audio features we want to show
-    var keys = ["danceability", "energy", "acousticness", "liveness", "tempo"]
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i]);
+      // The audio features we want to show
+//       var keys = ["danceability", "energy", "acousticness", "liveness", "tempo"]
     
     
-    // Display the audio features
-    keys.map(function(key, i) {
-      for (var i = 0; i < 
-    });
+//       // Display the audio features
+//       keys.map(function(key, i) {
+//         if (data[i].hasOwnProperty(key)) {
+//           var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
+//           feature.appendTo('#audio-features-container');
+//         }
+//       });
+    }
   });
   
   $.get('/artist', function(data) {
