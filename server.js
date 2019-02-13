@@ -129,9 +129,9 @@ app.get('/artist', function (request, response) {
       console.log(track);
       spotifyApi.getArtistTopTracks(track, 'SE')
        .then(function(data) {
-
+        console.log(data[0].body.tracks);
         // Send the list of tracks
-        response.send(data.body.tracks);
+        response.send(data.body);
 
       }, function(err) {
         console.error(err);
