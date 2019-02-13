@@ -127,20 +127,28 @@ app.get('/artist', function (request, response) {
 });
 
 
-  app.get('/artist-top-tracks', function (request, response) {
-    // Get an artist's top tracks in a country
-    var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
-    topTracks.map(function(track, i) {
-      spotifyApi.getArtistTopTracks(track, 'SE')
-       .then(function(data) {
-       
-        // Send the list of tracks
-        response.send(data.body.tracks);
+app.get('/artist-top-tracks', function (request, response) {
+// Get an artist's top tracks in a country
+//var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
+//topTracks.map(function(track, i) {
+  spotifyApi.getArtistTopTracks('0LcJLqbBmaGUft1e9Mm8HV', 'SE')
+   .then(function(data) {
 
-      }, function(err) {
-        console.error(err);
-      });
-    });
+    // Send the list of tracks
+    response.send(data.body.tracks);
+
+  }, function(err) {
+    console.error(err);
+  }),
+  spotifyApi.getArtistTopTracks('31TPClRtHm23RisEBtV3X7', 'SE')
+   .then(function(data2) {
+
+    // Send the list of tracks
+    response.send(data2.body.tracks);
+
+  }, function(err) {
+    console.error(err);
+  });
 });
 
 // Bonus Section!
