@@ -122,10 +122,6 @@ $(function() {
     console.groupEnd();
 
     //Display the artists names
-    
-    data.map(function(name, i){
-      console.log(name.artists[0].name);
-    });
     var artistsName = $('<h3>'+ data[0].artists[0].name +'</h3>');
     artistsName.appendTo('#top-tracks-container');
 

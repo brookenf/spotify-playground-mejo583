@@ -60,13 +60,14 @@ app.get('/search-track', function (request, response) {
     });
 });
 
-var countries = ['US', 'JP'];
-countries.map(function (country, i) {
-  console.log(country);
-  app.get('/category-playlists', function (request, response) {
+
+app.get('/category-playlists', function (request, response) {
    // Get playlists from a browse category
    // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-   spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country : country })
+   var countries = ['US', 'JP'];
+   countries.map(function (country, i) {
+     console.log(country);
+     spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country : country })
      .then(function(data) {
   
      // Send the list of playlists
@@ -120,13 +121,14 @@ app.get('/artist', function (request, response) {
     });
 });
 
-var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
-topTracks.map(function(track, i) {
-  console.log(track);
+
   app.get('/artist-top-tracks', function (request, response) {
     // Get an artist's top tracks in a country
-    spotifyApi.getArtistTopTracks(track, 'SE')
-      .then(function(data) {
+    var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
+    topTracks.map(function(track, i) {
+      console.log(track);
+      spotifyApi.getArtistTopTracks(track, 'SE')
+       .then(function(data) {
 
         // Send the list of tracks
         response.send(data.body.tracks);
@@ -134,7 +136,7 @@ topTracks.map(function(track, i) {
       }, function(err) {
         console.error(err);
       });
-  });
+    });
 });
 
 // Bonus Section!
