@@ -45,6 +45,20 @@ $(function() {
     });
   });
   
+  $.get('/category-playlists', function(data2) {
+    // "Data" is the object we get from the API. See server.js for the function that returns it.
+    console.group('%cResponse from /category-playlists', 'color: #F037A5; font-size: large');
+    console.log(data2);
+    console.groupEnd();
+    
+    // Display the covers of the playlists    
+    data2.items.map(function(playlist, i) {
+      var img = $('<img class="cover-image"/>');
+      img.attr('src', playlist.images[0].url);
+      img.appendTo('#category-playlists-container-2');
+    });
+  });
+  
   $.get('/tracks', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /tracks', 'color: #F037A5; font-size: large');

@@ -64,10 +64,7 @@ app.get('/search-track', function (request, response) {
 app.get('/category-playlists', function (request, response) {
    // Get playlists from a browse category
    // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-   var countries = ['US', 'JP'];
-   countries.map(function (country, i) {
-     console.log(country);
-     spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country : country })
+    spotifyApi.getPlaylistsForCategory('kpop', { limit : 10, country : 'US' })
      .then(function(data) {
   
      // Send the list of playlists
@@ -75,8 +72,16 @@ app.get('/category-playlists', function (request, response) {
 
     }, function(err) {
       console.error(err);
+    }),
+    spotifyApi.getPlaylistsForCategory('rock', { limit : 10, country : 'JP' })
+     .then(function(data2) {
+  
+     // Send the list of playlists
+      response.send(data2.body.playlists);
+
+    }, function(err) {
+      console.error(err);
     });
-  });
 });
 
 
