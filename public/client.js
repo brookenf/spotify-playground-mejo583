@@ -140,14 +140,14 @@ $(function() {
     
     data.map(function(album, i) {
       var tracks = album.tracks.items;
-      console.log(tracks);
-      for(var j = 0; ) {
+      for(var j = 0; j < tracks.length; j++) {
+        console.log(tracks[j].name);
       }
       
-      var albumContainer = $('<div class=""album-container">' + '<img src="' + album.images[0].url +'"/><h3>' + album.name + '</h3>' + '<li>' + '</li>' + '</div><br/>');
-      albumContainer.appendTo('#bonus-container');
+      //build the info
+      var albumContainer = $('<img src="' + album.images[0].url +'"/><h3>' + album.name + '</h3>');
+      albumContainer.AppendTo('#bonus-container');
     });
-      
       
   });//end of .get album
 });
