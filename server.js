@@ -155,14 +155,14 @@ topTracks.map(function(track, i) {
 app.get('/albums', function (request, response) {
   
   //get albums
-  spotifyApi.getAlbums(['2fYhqwDWXjbpjaIJPEfKFw', '7drIw3eAGaFbqjAQe9EMYF', '4gAskFzNlJrr2Ap1Ednnl'])
+  spotifyApi.getAlbums(['2fYhqwDWXjbpjaIJPEfKFw', '7drIw3eAGaFbqjAQe9EMYF', '1FmtmLnB1KrXjK0uWLkyhq'])
     .then(function(data) {
-      response.send(data.body);
+      response.send(data.body.albums);
+  
   }, function(err) {
     console.error(err);
   });
-
-});
+});// end of .get albums section
 
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//

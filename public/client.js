@@ -130,8 +130,21 @@ $(function() {
       var trackName = $('<li>' + track.name + '</li>');
         trackName.appendTo('#top-tracks-container');
       });
-     
-    
   });//end of .get artist top tracks
-
+  
+  $.get('/albums', function(data) {
+    // "Data" is the object we get from the API. See server.js for the function that returns it.
+    console.group('%cResponse from /albums', 'color: #F037A5; font-size: large');
+    console.log(data);
+    console.groupEnd();
+    
+    for(var i = 0; i < data.length; i++) {
+      console.log(data[i].images[i].url);
+      var albumCover = $('<img class="cover-image"/>');
+      albumCover.attr('src', data[i].images[i].url);
+      albumCover.appendTo('#bonus-container');
+    }
+    
+  
+  });//end of .get album
 });
