@@ -139,14 +139,16 @@ $(function() {
     console.groupEnd();
     
     data.map(function(album, i) {
-      var tracks = album.tracks.items;
-      for(var j = 0; j < tracks.length; j++) {
-        console.log(tracks[j].name);
-      }
-      
       //build the info
-      var albumContainer = $('<img src="' + album.images[0].url +'"/><h3>' + album.name + '</h3>');
-      albumContainer.AppendTo('#bonus-container');
+      var albumContainer = $(
+        '<br/><img src="' + album.images[0].url +'"/><h3 class="bonus-name">' + album.name + '</h3>'
+      );
+      albumContainer.appendTo('#bonus-container');
+        var tracks = album.tracks.items;
+          for(var j = 0; j < tracks.length; j++) {
+            var trackNames = $('<li>' + tracks[j].name + '</li>');
+            trackNames.appendTo('#bonus-container');
+        }
     });
       
   });//end of .get album
