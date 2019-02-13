@@ -126,12 +126,12 @@ app.get('/artist', function (request, response) {
     // Get an artist's top tracks in a country
     var topTracks = ['0LcJLqbBmaGUft1e9Mm8HV', '31TPClRtHm23RisEBtV3X7'];
     topTracks.map(function(track, i) {
-      console.log(track);
+      
       spotifyApi.getArtistTopTracks(track, 'SE')
        .then(function(data) {
-        console.log(data[0].body.tracks);
+       
         // Send the list of tracks
-        response.send(data.body);
+        response.send(data.body.tracks);
 
       }, function(err) {
         console.error(err);

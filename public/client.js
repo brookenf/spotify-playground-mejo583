@@ -118,7 +118,9 @@ $(function() {
   $.get('/artist-top-tracks', function(data) {
     // "Data" is the object we get from the API. See server.js for the function that returns it.
     console.group('%cResponse from /artist-top-tracks', 'color: #F037A5; font-size: large');
-    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i]);
+    }
     console.groupEnd();
 
     //Display the artists names
