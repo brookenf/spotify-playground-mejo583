@@ -77,20 +77,6 @@ countries.map(function (country, i) {
     });
   });
 });
-// app.get('/category-playlists', function (request, response) {
-  
-//    // Get playlists from a browse category
-//    // Find out which categories are available here: https://beta.developer.spotify.com/console/get-browse-categories/
-//    spotifyApi.getPlaylistsForCategory('pop', { limit : 10, country : 'JP' })
-//      .then(function(data) {
-  
-//      // Send the list of playlists
-//       response.send(data.body.playlists);
-
-//     }, function(err) {
-//       console.error(err);
-//     });
-// });
 
 
 app.get('/tracks', function(request, response) { 
