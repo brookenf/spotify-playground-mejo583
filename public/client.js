@@ -97,7 +97,7 @@ $(function() {
       artistName.appendTo('#artist-container');
 
       // Display the artist's genres
-      data[i].genres.map(function(genre, j) {
+      data[i].genres[0].map(function(genre, j) {
         var genreItem = $('<p>' + genre + '</p>');
         genreItem.appendTo('#artist-container');
       });
@@ -139,11 +139,11 @@ $(function() {
     console.groupEnd();
     
     for(var i = 0; i < data.length; i++) {
-      console.log(data[i].images[i].url);
-      var albumContainer = $('<div class=""album-container">' + '<img src="' + data[i].images[0].url +'"/><h3>' + + '</h3' + '</div><br/>')
+      data[i].tracks.map(function(track, j) {
+        console.log(track);
+      });
+      var albumContainer = $('<div class=""album-container">' + '<img src="' + data[i].images[0].url +'"/><h3>' + data[i].name + '</h3>' + '<li>' + '</li>' + '</div><br/>');
       albumContainer.appendTo('#bonus-container');
-    }
-    
-  
+      }
   });//end of .get album
 });
