@@ -155,7 +155,7 @@ topTracks.map(function(track, i) {
 app.get('/albums', function (request, response) {
   
   //get albums
-  spotifyApi.getAlbums(['2fYhqwDWXjbpjaIJPEfKFw', '7drIw3eAGaFbqjAQe9EMYF', '0O82niJ0NpcptYRxogeEZu'])
+  spotifyApi.getAlbums(['2fYhqwDWXjbpjaIJPEfKFw', '7drIw3eAGaFbqjAQe9EMYF', '1FmtmLnB1KrXjK0uWLkyhq'])
     .then(function(data) {
       response.send(data.body.albums);
   
