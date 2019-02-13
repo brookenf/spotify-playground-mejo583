@@ -152,7 +152,17 @@ topTracks.map(function(track, i) {
 });
 
 // Bonus Section!
+app.get('/albums', function (request, response) {
+  
+  //get albums
+  spotifyApi.getAlbums(['2fYhqwDWXjbpjaIJPEfKFw', '7drIw3eAGaFbqjAQe9EMYF', '4gAskFzNlJrr2Ap1Ednnl'])
+    .then(function(data) {
+      response.send(data.body);
+  }, function(err) {
+    console.error(err);
+  });
 
+});
 
 //-------------------------------------------------------------//
 //------------------------ WEB SERVER -------------------------//
