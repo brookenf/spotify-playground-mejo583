@@ -140,9 +140,8 @@ $(function() {
     
     for(var i = 0; i < data.length; i++) {
       console.log(data[i].images[i].url);
-      var albumCover = $('<img/>');
-      albumCover.attr('src', data[i].images[0].url);
-      albumCover.appendTo('#bonus-container');
+      var albumContainer = $('<div class=""album-container">' + '<img src="' + data[i].images[0].url +'"/><h3>' + + '</h3' + '</div><br/>')
+      albumContainer.appendTo('#bonus-container');
     }
     
   
